@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   include SessionsHelper
+  skip_before_action :require_login, only: [:new, :create]
 
 def new
   # @user = User.all
@@ -20,7 +21,7 @@ end
 def destroy
   log_out
   redirect_to users_path
-  flash[:success] = "You have successfully logged out"
+  flash.now[:success] = "You have successfully logged out"
 end
 
 end
