@@ -18,7 +18,9 @@ def create
 end
 
 def destroy
-
+  log_out
+  redirect_to users_path
+  flash[:success] = "You have successfully logged out"
 end
 
 end
